@@ -74,6 +74,20 @@
 - URL path: `/`
 - Ready when: `GET` `/actuator/health` returns `200`
 
+## Resource estimates
+
+### Output `app`
+
+- Startup typical MiB: `768`
+- Startup high MiB: `1280`
+- Running typical MiB: `640`
+- Running high MiB: `1280`
+
+### Workspace setup
+
+- Typical MiB: `512`
+- High MiB: `1024`
+
 ## Workspace setup
 
 - Prepare `Compile application` with `java` when `pom.xml` exists: `./mvnw` `-B` `-DskipTests` `compile`
