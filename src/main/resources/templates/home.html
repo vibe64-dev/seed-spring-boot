@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notes</title>
+  <link rel="stylesheet" th:href="@{/app.css}">
+</head>
+<body>
+  <main>
+    <form th:action="@{/notes}" th:object="${noteForm}" method="post" class="note-form">
+      <label for="body">New note</label>
+      <textarea id="body" th:field="*{body}" rows="3" maxlength="500" required></textarea>
+      <p class="error" th:if="${#fields.hasErrors('body')}" th:errors="*{body}">Error</p>
+      <button type="submit">Save note</button>
+    </form>
+
+    <ul class="notes" th:unless="${notes.isEmpty()}">
+      <li th:each="note : ${notes}">
+        <p th:text="${note.body}">Note</p>
+        <time th:datetime="${note.createdAt}"
+              th:text="${#temporals.format(note.createdAt, 'yyyy-MM-dd HH:mm', 'UTC')} + ' UTC'">time</time>
+      </li>
+    </ul>
+    <p class="empty" th:if="${notes.isEmpty()}">No notes yet. Save the first one above.</p>
+  </main>
+</body>
+</html>

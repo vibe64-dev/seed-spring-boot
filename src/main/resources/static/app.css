@@ -1,0 +1,86 @@
+:root {
+  color-scheme: light dark;
+  --surface: #ffffff;
+  --text: #1c1b1f;
+  --muted: #5f5b66;
+  --line: #d9d4e0;
+  --accent: #4f46e5;
+  --error: #b3261e;
+  font-family: system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface: #1c1b1f;
+    --text: #e6e1e5;
+    --muted: #aaa4b2;
+    --line: #3b3842;
+    --accent: #a5b4fc;
+    --error: #f2b8b5;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+}
+
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+.note-form {
+  display: grid;
+  gap: 0.5rem;
+}
+
+textarea {
+  font: inherit;
+  padding: 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: transparent;
+  color: inherit;
+}
+
+button {
+  justify-self: start;
+  font: inherit;
+  padding: 0.5rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--surface);
+  cursor: pointer;
+}
+
+.error {
+  margin: 0;
+  color: var(--error);
+}
+
+.notes {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+
+.notes li {
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.notes p {
+  margin: 0 0 0.25rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+time,
+.empty {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
